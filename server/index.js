@@ -1,4 +1,8 @@
+require('dotenv').config();
 const fastify = require('fastify')({ logger: true })
+
+fastify.register(require('./plugins/db'))
+fastify.register(require('./plugins/auth'))
 
 fastify.register(require('./routes'))
 
